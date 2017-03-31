@@ -13,12 +13,15 @@ namespace OnlineStore.PageObjects
         private IWebDriver driver;
 
         [FindsBy(How = How.Id, Using = "log")]
+        [CacheLookup]
         public IWebElement UserName { get; set; }
 
         [FindsBy(How = How.Id, Using = "pwd")]
+        [CacheLookup]
         public IWebElement Password { get; set; }
 
         [FindsBy(How = How.Id, Using = "login")]
+        [CacheLookup]
         public IWebElement Submit { get; set; }
     }
 }

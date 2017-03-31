@@ -16,6 +16,7 @@ namespace OnlineStore.TestCases
         {
             IWebDriver driver = new FirefoxDriver();
             driver.Url = "http://www.store.demoqa.com";
+            //driver.Url = "http://store.demoqa.com/products-page/your-account/";
 
             driver.FindElement(By.XPath(".//*[@id='account']/a")).Click();
 

@@ -12,7 +12,7 @@ namespace OnlineStore.PageObjects
     {
         private IWebDriver driver;
 
-        [FindsBy(How = How.Id, Using ="account")]
+        [FindsBy(How = How.Id, Using ="account")][CacheLookup]
         public IWebElement MyAccount { get; set; }
     }
 }

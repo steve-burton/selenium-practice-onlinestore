@@ -11,7 +11,7 @@ using OnlineStore.PageObjects;
 
 namespace OnlineStore.PageObjects
 {
-    class LogInTest
+    class LogInTest 
     {
         [Test]
         public void Test()
