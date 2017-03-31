@@ -7,6 +7,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OnlineStore.PageObjects;
+using System.Configuration;
 
 namespace OnlineStore.TestCases
 {
@@ -16,21 +17,10 @@ namespace OnlineStore.TestCases
         public void Test()
         {
             IWebDriver driver = new FirefoxDriver();
-            driver.Url = "http://www.store.demoqa.com";
-            //driver.Url = "http://store.demoqa.com/products-page/your-account/";
-
-            //driver.FindElement(By.XPath(".//*[@id='account']/a")).Click();
-
-            //driver.FindElement(By.Id("log")).SendKeys("testuser_1");
-
-            //driver.FindElement(By.Id("pwd")).SendKeys("Test@123");
-
-            //driver.FindElement(By.Id("login")).Click();
-
-            //driver.FindElement(By.XPath(".//*[@id='account_logout']/a")).Click();
+            driver.Url = ConfigurationManager.AppSettings["URL"];
 
             var homePage = new HomePage(driver);
-            homePage.MyAccount.Click();
+            homePage.ClickOnMyAccount();
 
             var loginPage = new LoginPage(driver);
             loginPage.LoginToApplication();

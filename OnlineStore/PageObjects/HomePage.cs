@@ -13,12 +13,17 @@ namespace OnlineStore.PageObjects
         private IWebDriver driver;
 
         [FindsBy(How = How.Id, Using ="account")][CacheLookup]
-        public IWebElement MyAccount { get; set; }
+        private IWebElement MyAccount { get; set; }
 
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
+        }
+
+        public void ClickOnMyAccount()
+        {
+            MyAccount.Click();
         }
     }
 }
