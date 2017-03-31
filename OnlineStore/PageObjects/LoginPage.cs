@@ -23,5 +23,18 @@ namespace OnlineStore.PageObjects
         [FindsBy(How = How.Id, Using = "login")]
         [CacheLookup]
         public IWebElement Submit { get; set; }
+
+        public LoginPage(IWebDriver driver)
+        {
+            this.driver = driver;
+            PageFactory.InitElements(driver, this);
+        }
+        
+        public void LoginToApplication()
+        {
+            UserName.SendKeys("TestUser_1");
+            Password.SendKeys("Test@123");
+            Submit.Submit();
+        }
     }
 }
