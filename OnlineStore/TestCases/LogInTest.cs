@@ -7,17 +7,32 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OnlineStore.PageObjects;
+using OnlineStore.WrapperFactory;
 using System.Configuration;
 
 namespace OnlineStore.TestCases
 {
     class LogInTest
     {
+        private IWebDriver driver;
+
         [Test]
         public void Test()
         {
-            IWebDriver driver = new FirefoxDriver();
-            driver.Url = ConfigurationManager.AppSettings["URL"];
+            // This is the old test without BrowserFactory
+            //IWebDriver driver = new FirefoxDriver();
+            //driver.Url = ConfigurationManager.AppSettings["URL"];
+
+            //var homePage = new HomePage(driver);
+            //homePage.ClickOnMyAccount();
+
+            //var loginPage = new LoginPage(driver);
+            //loginPage.LoginToApplication();
+
+            //driver.Close();
+
+            BrowserFactory.InitBrowser("Firefox");
+            BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
 
             var homePage = new HomePage(driver);
             homePage.ClickOnMyAccount();
@@ -25,7 +40,7 @@ namespace OnlineStore.TestCases
             var loginPage = new LoginPage(driver);
             loginPage.LoginToApplication();
 
-            driver.Close();
+            BrowserFactory.CloseAllDrivers();
         }
     }
 }
