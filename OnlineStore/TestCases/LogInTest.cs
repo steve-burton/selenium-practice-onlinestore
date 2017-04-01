@@ -34,11 +34,11 @@ namespace OnlineStore.TestCases
             BrowserFactory.InitBrowser("Firefox");
             BrowserFactory.LoadApplication(ConfigurationManager.AppSettings["URL"]);
 
-            var homePage = new HomePage(driver);
-            homePage.ClickOnMyAccount();
+            //var homePage = new HomePage(driver);
+            Page.Home.ClickOnMyAccount();
 
-            var loginPage = new LoginPage(driver);
-            loginPage.LoginToApplication();
+            //var loginPage = new LoginPage(driver);
+            Page.Login.LoginToApplication();
 
             BrowserFactory.CloseAllDrivers();
         }

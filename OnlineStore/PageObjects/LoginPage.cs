@@ -24,11 +24,11 @@ namespace OnlineStore.PageObjects
         [CacheLookup]
         private IWebElement Submit { get; set; }
 
-        public LoginPage(IWebDriver driver)
-        {
-            this.driver = driver;
-            PageFactory.InitElements(driver, this);
-        }
+        //public LoginPage(IWebDriver driver)
+        //{
+        //    this.driver = driver;
+        //    PageFactory.InitElements(driver, this);
+        //}
         
         public void LoginToApplication()
         {
