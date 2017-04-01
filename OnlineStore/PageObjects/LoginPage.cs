@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OnlineStore.Extensions;
 
 namespace OnlineStore.PageObjects
 {
@@ -23,18 +24,12 @@ namespace OnlineStore.PageObjects
         [FindsBy(How = How.Id, Using = "login")]
         [CacheLookup]
         private IWebElement Submit { get; set; }
-
-        //public LoginPage(IWebDriver driver)
-        //{
-        //    this.driver = driver;
-        //    PageFactory.InitElements(driver, this);
-        //}
         
         public void LoginToApplication()
         {
             UserName.SendKeys("TestUser_1");
             Password.SendKeys("Test@123");
-            Submit.Submit();
+            Submit.ClickOnIt("Submit Button");
         }
     }
 }
